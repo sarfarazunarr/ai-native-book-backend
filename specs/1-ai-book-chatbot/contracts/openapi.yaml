@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: AI-Powered Chatbot for Physical AI & Humanoid Robotics Book
+  description: API for interacting with the robotics book chatbot
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Development server
+  - url: https://api.robotics-chatbot.example.com
+    description: Production server
+
+paths:
+  /admin/ingest:
+    post:
+      summary: Trigger content ingestion from sitemap
+      operationId: trigger_ingestion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                force_reindex:
+                  type: boolean
+                  description: Whether to force reindexing of all content
+                  default: false
+              example:
+                force_reindex: false
+      responses:
+        '200':
+          description: Ingestion process started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Ingestion started"
+                  processed_count:
+                    type: integer
+                    example: 42
+        '401':
+          description: Unauthorized access to admin endpoint
+        '500':
+          description: Internal server error during ingestion
+
+  /chat:
+    post:
+      summary: Submit a query to the chatbot
+      operationId: submit_query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: The user's question about the book content
+                  example: "What are the main components of a humanoid robot?"
+                session_id:
+                  type: string
+                  description: Optional session identifier for conversation continuity
+                  example: "sess-12345"
+      responses:
+        '200':
+          description: Successful response from the chatbot
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - response
+                  - sources
+                  - session_id
+                properties:
+                  response:
+                    type: string
+                    description: The chatbot's answer to the query
+                    example: "A humanoid robot consists of several key components including actuators for movement..."
+                  sources:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                          example: "https://physical-ai-humanoid-robotics-omega.vercel.app/actuators"
+                        title:
+                          type: string
+                          example: "Actuators in Humanoid Robotics"
+                  session_id:
+                    type: string
+                    example: "sess-12345"
+        '400':
+          description: Invalid query format
+        '500':
+          description: Internal server error during query processing
+
+  /health:
+    get:
+      summary: Check the health status of the service
+      operationId: check_health
+      responses:
+        '200':
+          description: Health status of the service
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  checks:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    example:
+                      database: "connected"
+                      qdrant: "connected"
+                      cohere_api: "connected"
+                      openai_api: "connected"
