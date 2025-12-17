@@ -1,55 +1,43 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A -> 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: All sections (new constitution)
+Removed sections: N/A
+Templates requiring updates: ⚠ pending - .specify/templates/plan-template.md, .specify/templates/spec-template.md, .specify/templates/tasks-template.md
+Follow-up TODOs: None
+-->
+# Backend for Physical AI & Humanoid Robotics Chatbot Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Modularity
+Separation of concerns between Scraper, Embedder, VectorStore, and Agent. This ensures each component can be developed, tested, and maintained independently while maintaining clear interfaces between components.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Performance
+Async-first approach (FastAPI + Async Qdrant/OpenAI). All operations should be designed to support asynchronous execution to maximize throughput and minimize blocking operations, ensuring optimal performance under load.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Reliability
+Robust error handling for network-heavy tasks (scraping/API calls). Network operations must include appropriate retry mechanisms, timeouts, and graceful degradation to maintain service availability despite external service fluctuations.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Security
+Secure handling of API_KEYs via environment variables (never hardcoded). All sensitive credentials must be stored securely outside the codebase and accessed through secure configuration management to prevent accidental exposure.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Documentation and Type Safety
+All endpoints must be documented with FastAPI/Pydantic schemas. The codebase must be PEP 8 compliant with comprehensive type hints using Python 3.10+ features to ensure code clarity and prevent type-related errors.
 
-### [PRINCIPLE_6_NAME]
+### Observability
+Structured logging to track ingestion status and agent reasoning. All components must emit structured logs with appropriate metadata to enable debugging, monitoring, and performance analysis of the system.
 
+## Key Standards
 
-[PRINCIPLE__DESCRIPTION]
+All endpoints must be documented with FastAPI/Pydantic schemas. Logging: Use structured logging to track ingestion status and agent reasoning. Coding Style: PEP 8 compliant, type-hinted Python 3.10+. Dependency Management: Requirements.txt or pyproject.toml included.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Framework: FastAPI. Vector DB: Qdrant. Embedding: Cohere (embed-english-v3.0 or latest). Agent Logic: OpenAI Agents SDK (Agent/Runner pattern).
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution establishes the foundational principles for the Physical AI & Humanoid Robotics Chatbot backend. All implementation decisions must align with these principles. Any deviation requires explicit documentation of the rationale and approval from the project maintainers. Version changes follow semantic versioning, with major changes requiring community review and approval.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-17 | **Last Amended**: 2025-12-17
