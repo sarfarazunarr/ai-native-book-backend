@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException, Depends
 from typing import Dict, Any
 import logging
 from pydantic import BaseModel
-import asyncio
 
 
 from ..exceptions import HTTPUnauthorizedError, HTTPInternalServerError
@@ -79,7 +78,7 @@ async def ingest_content(request: IngestRequest, admin: bool = Depends(require_a
         vector_service = VectorService()
 
         # Step 1: Parse sitemap
-        sitemap_url = "https://physical-ai-humanoid-robotics-omega.vercel.app/sitemap.xml"  # This would come from config in a real app
+        sitemap_url = "https://physical-ai-humanoid-robotics-omega.vercel.app/sitemap.xml"  
         urls = sitemap_parser.parse_sitemap_from_url(sitemap_url)
 
         # Step 2: Scrape content from URLs

@@ -1,7 +1,5 @@
 import os
-from typing import Optional
 from pydantic import BaseModel
-from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -14,10 +12,10 @@ set_tracing_disabled(True)
 
 external_client = AsyncOpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+    base_url=os.getenv("BASE_URL")
 )
 
-MODEL = OpenAIChatCompletionsModel(model="gemini-2.5-flash", openai_client=external_client)
+MODEL = OpenAIChatCompletionsModel(model=os.getenv("AI_MODEL"), openai_client=external_client)
 
 class Settings(BaseModel):
     """Application settings loaded from environment variables."""

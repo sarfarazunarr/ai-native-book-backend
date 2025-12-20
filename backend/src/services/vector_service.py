@@ -1,7 +1,6 @@
 from typing import List, Dict, Any
 from uuid import uuid4
 from ..vector_db import vector_db
-from ..config import settings
 import logging
 
 

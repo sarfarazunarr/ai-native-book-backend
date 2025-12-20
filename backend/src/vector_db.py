@@ -1,7 +1,7 @@
 from typing import List, Optional, Dict, Any
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
-from qdrant_client.http.models import Distance, VectorParams, PayloadSchemaType
+from qdrant_client.http.models import Distance, VectorParams
 from uuid import UUID
 import logging
 from .config import settings
