@@ -28,10 +28,10 @@ description: "Task list for AI-powered Chatbot for Physical AI & Humanoid Roboti
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan in backend/
-- [ ] T002 Initialize Python 3.10+ project with FastAPI, Qdrant, Cohere, OpenAI, BeautifulSoup, httpx dependencies in requirements.txt
-- [ ] T003 [P] Configure linting and formatting tools (flake8, black, mypy)
-- [ ] T004 Create .env file structure with placeholders for API keys
+- [X] T001 Create project structure per implementation plan in backend/
+- [X] T002 Initialize Python 3.10+ project with FastAPI, Qdrant, Cohere, OpenAI, BeautifulSoup, httpx dependencies in requirements.txt
+- [X] T003 [P] Configure linting and formatting tools (flake8, black, mypy)
+- [X] T004 Create .env file structure with placeholders for API keys
 
 ---
 
@@ -41,13 +41,13 @@ description: "Task list for AI-powered Chatbot for Physical AI & Humanoid Roboti
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T005 Setup configuration management for environment variables in backend/src/config.py
-- [ ] T006 [P] Setup logging infrastructure in backend/src/logging_config.py
-- [ ] T007 [P] Setup database schema and Qdrant connection in backend/src/vector_db.py
-- [ ] T008 Create base models/entities that all stories depend on based on data-model.md in backend/src/models/
-- [ ] T009 Setup API routing and middleware structure in backend/src/main.py
-- [ ] T010 Configure error handling infrastructure in backend/src/exceptions.py
-- [ ] T011 Setup health check endpoint in backend/src/api/health.py
+- [X] T005 Setup configuration management for environment variables in backend/src/config.py
+- [X] T006 [P] Setup logging infrastructure in backend/src/logging_config.py
+- [X] T007 [P] Setup database schema and Qdrant connection in backend/src/vector_db.py
+- [X] T008 Create base models/entities that all stories depend on based on data-model.md in backend/src/models/
+- [X] T009 Setup API routing and middleware structure in backend/src/main.py
+- [X] T010 Configure error handling infrastructure in backend/src/exceptions.py
+- [X] T011 Setup health check endpoint in backend/src/api/health.py
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -63,21 +63,21 @@ description: "Task list for AI-powered Chatbot for Physical AI & Humanoid Roboti
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T012 [P] [US1] Contract test for /chat endpoint in backend/tests/contract/test_chat_contract.py
-- [ ] T013 [P] [US1] Integration test for Qdrant "Search" tool return values in backend/tests/integration/test_search_tool.py
-- [ ] T014 [P] [US1] Mock agent response test in backend/tests/unit/test_agent_logic.py
+- [X] T012 [P] [US1] Contract test for /chat endpoint in backend/tests/contract/test_chat_contract.py
+- [X] T013 [P] [US1] Integration test for Qdrant "Search" tool return values in backend/tests/integration/test_search_tool.py
+- [X] T014 [P] [US1] Mock agent response test in backend/tests/unit/test_agent_logic.py
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Create ChatSession model in backend/src/models/chat_session.py (from data-model.md)
-- [ ] T016 [P] [US1] Create UserQuery model in backend/src/models/user_query.py (from data-model.md)
-- [ ] T017 [P] [US1] Create AgentResponse model in backend/src/models/agent_response.py (from data-model.md)
-- [ ] T018 [US1] Implement chat session service in backend/src/services/chat_service.py
-- [ ] T019 [US1] Implement search tool for Qdrant queries in backend/src/tools/search_tool.py
-- [ ] T020 [US1] Implement BookAssistant agent logic in backend/src/agents/book_assistant.py
-- [ ] T021 [US1] Implement /chat endpoint in backend/src/api/chat.py
-- [ ] T022 [US1] Add citation functionality to responses in backend/src/agents/book_assistant.py
-- [ ] T023 [US1] Add logging for chat operations in backend/src/api/chat.py
+- [X] T015 [P] [US1] Create ChatSession model in backend/src/models/chat_session.py (from data-model.md)
+- [X] T016 [P] [US1] Create UserQuery model in backend/src/models/user_query.py (from data-model.md)
+- [X] T017 [P] [US1] Create AgentResponse model in backend/src/models/agent_response.py (from data-model.md)
+- [X] T018 [US1] Implement chat session service in backend/src/services/chat_service.py
+- [X] T019 [US1] Implement search tool for Qdrant queries in backend/src/tools/search_tool.py
+- [X] T020 [US1] Implement BookAssistant agent logic in backend/src/agents/book_assistant.py
+- [X] T021 [US1] Implement /chat endpoint in backend/src/api/chat.py
+- [X] T022 [US1] Add citation functionality to responses in backend/src/agents/book_assistant.py
+- [X] T023 [US1] Add logging for chat operations in backend/src/api/chat.py
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -91,20 +91,20 @@ description: "Task list for AI-powered Chatbot for Physical AI & Humanoid Roboti
 
 ### Tests for User Story 2 ⚠️
 
-- [ ] T024 [P] [US2] Contract test for /admin/ingest endpoint in backend/tests/contract/test_ingest_contract.py
-- [ ] T025 [P] [US2] Unit test for Sitemap parsing in backend/tests/unit/test_sitemap_parser.py
+- [X] T024 [P] [US2] Contract test for /admin/ingest endpoint in backend/tests/contract/test_ingest_contract.py
+- [X] T025 [P] [US2] Unit test for Sitemap parsing in backend/tests/unit/test_sitemap_parser.py
 
 ### Implementation for User Story 2
 
-- [ ] T026 [P] [US2] Create BookContent model in backend/src/models/book_content.py (from data-model.md)
-- [ ] T027 [P] [US2] Create VectorEmbedding model in backend/src/models/vector_embedding.py (from data-model.md)
-- [ ] T028 [US2] Implement sitemap parser in backend/src/ingestors/sitemap_parser.py
-- [ ] T029 [US2] Implement async scraping logic with httpx in backend/src/ingestors/content_scraper.py
-- [ ] T030 [US2] Create content cleaning function for Docusaurus boilerplate in backend/src/ingestors/content_cleaner.py
-- [ ] T031 [US2] Implement content chunking logic in backend/src/ingestors/content_chunker.py
-- [ ] T032 [US2] Implement embedding service using Cohere in backend/src/services/embedding_service.py
-- [ ] T033 [US2] Implement /admin/ingest endpoint in backend/src/api/admin.py
-- [ ] T034 [US2] Add logging for ingestion operations in backend/src/api/admin.py
+- [X] T026 [P] [US2] Create BookContent model in backend/src/models/book_content.py (from data-model.md)
+- [X] T027 [P] [US2] Create VectorEmbedding model in backend/src/models/vector_embedding.py (from data-model.md)
+- [X] T028 [US2] Implement sitemap parser in backend/src/ingestors/sitemap_parser.py
+- [X] T029 [US2] Implement async scraping logic with httpx in backend/src/ingestors/content_scraper.py
+- [X] T030 [US2] Create content cleaning function for Docusaurus boilerplate in backend/src/ingestors/content_cleaner.py
+- [X] T031 [US2] Implement content chunking logic in backend/src/ingestors/content_chunker.py
+- [X] T032 [US2] Implement embedding service using Cohere in backend/src/services/embedding_service.py
+- [X] T033 [US2] Implement /admin/ingest endpoint in backend/src/api/admin.py
+- [X] T034 [US2] Add logging for ingestion operations in backend/src/api/admin.py
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -118,15 +118,15 @@ description: "Task list for AI-powered Chatbot for Physical AI & Humanoid Roboti
 
 ### Tests for User Story 3 ⚠️
 
-- [ ] T035 [P] [US3] Integration test for vector storage persistence in backend/tests/integration/test_storage_persistence.py
+- [X] T035 [P] [US3] Integration test for vector storage persistence in backend/tests/integration/test_storage_persistence.py
 
 ### Implementation for User Story 3
 
-- [ ] T036 [P] [US3] Update Qdrant vector storage with proper indexing in backend/src/vector_db.py
-- [ ] T037 [US3] Implement vector upsert functionality with metadata in backend/src/services/vector_service.py
-- [ ] T038 [US3] Implement similarity search functionality in backend/src/tools/search_tool.py
-- [ ] T039 [US3] Add configuration for persistent storage settings in backend/src/config.py
-- [ ] T040 [US3] Implement health checks for vector storage in backend/src/api/health.py
+- [X] T036 [P] [US3] Update Qdrant vector storage with proper indexing in backend/src/vector_db.py
+- [X] T037 [US3] Implement vector upsert functionality with metadata in backend/src/services/vector_service.py
+- [X] T038 [US3] Implement similarity search functionality in backend/src/tools/search_tool.py
+- [X] T039 [US3] Add configuration for persistent storage settings in backend/src/config.py
+- [X] T040 [US3] Implement health checks for vector storage in backend/src/api/health.py
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -136,13 +136,13 @@ description: "Task list for AI-powered Chatbot for Physical AI & Humanoid Roboti
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T041 [P] Documentation updates in docs/README.md
-- [ ] T042 Code cleanup and refactoring across modules
-- [ ] T043 Performance optimization across all stories
-- [ ] T044 [P] Additional unit tests (if requested) in backend/tests/unit/
-- [ ] T045 Security hardening especially for admin endpoints
-- [ ] T046 Run quickstart.md validation
-- [ ] T047 Create Dockerfile and docker-compose.yml for containerization
+- [X] T041 [P] Documentation updates in docs/README.md
+- [X] T042 Code cleanup and refactoring across modules
+- [X] T043 Performance optimization across all stories
+- [X] T044 [P] Additional unit tests (if requested) in backend/tests/unit/
+- [X] T045 Security hardening especially for admin endpoints
+- [X] T046 Run quickstart.md validation
+- [X] T047 Create Dockerfile and docker-compose.yml for containerization
 
 ---
 
