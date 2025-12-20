@@ -13,7 +13,7 @@ from agents import set_tracing_disabled, OpenAIChatCompletionsModel
 set_tracing_disabled(True)
 
 external_client = AsyncOpenAI(
-    api_key=os.getenv("OPENAI_API_KEY", "AIzaSyD7AH8LJmTk0aQd-L1g613heU0vnUgsUMM"),
+    api_key=os.getenv("OPENAI_API_KEY"),
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
