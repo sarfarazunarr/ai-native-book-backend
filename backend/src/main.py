@@ -55,7 +55,7 @@ app.add_middleware(
 
 
 # Include API routers
-app.include_router(home_router, prefix="/", tags=["home"])
+app.include_router(home_router, prefix="", tags=["home"])
 app.include_router(health_router, prefix="", tags=["health"])
 app.include_router(chat_router, prefix="", tags=["chat"])
 app.include_router(admin_router, prefix="/admin", tags=["admin"])
