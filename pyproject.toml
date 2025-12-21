@@ -22,3 +22,5 @@ dependencies = [
     "qdrant-client==1.16.2",
     "uvicorn[standard]==0.38.0",
 ]
+[project.scripts]
+app = "backend.src.main:app"
